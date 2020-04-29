@@ -217,12 +217,16 @@ class SevenDisplay():
     #mise à jour de l'heure
     #------------------------------
     def set_time(self, hh, mn, ss, ds):
+        colon = False
         if ds <5 :      # dixième de secondes: fait clignoter le séparateur toutes les 1/2 secondes
-            self.display.colon = True
-        else:
-            self.display.colon = False
-        self.display.print(hh+mn)
+            colon = True
+        try:
+            self.display.colon = colon
+            self.display.print(hh+mn)
+        except:
+            print('io/error communication 7segment display ', hh,':', mn,':',ss,'.',ds)
         self.display.show()
+
 
     # extinction de l'afficheur
     #----------------------------------------------
