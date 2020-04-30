@@ -225,6 +225,7 @@ class SevenDisplay():
             self.display.print(hh+mn)
         except:
             print('io/error communication 7segment display ', hh,':', mn,':',ss,'.',ds)
+            os.system('sudo reboot') #reboot le système
         self.display.show()
 
 
