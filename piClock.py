@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
-########################################################################
-# Filename    : piClock.py
+#############################################################################
+# Filename    : piClock.py v1.2
 # Description : horloge numérique
 # auther      : papsdroid.fr
-# modification: 2020/03/13
-########################################################################
+# creation    : 2020/03/13
+# version     : v1.2 2020/05/02 (correctif pb IO ERROR avec adafruit_ht16k33)
+#############################################################################
 
 import RPi.GPIO as GPIO
 import time, threading, os, board, neopixel
@@ -223,10 +224,10 @@ class SevenDisplay():
         try:
             self.display.colon = colon
             self.display.print(hh+mn)
+            self.display.show()
         except:
             print('io/error communication 7segment display ', hh,':', mn,':',ss,'.',ds)
-            os.system('sudo reboot') #reboot le système
-        self.display.show()
+            #os.system('sudo reboot') #reboot le système
 
 
     # extinction de l'afficheur
