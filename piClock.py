@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-#############################################################################
-# Filename    : piClock.py v1.2
+# -*- coding: utf-8 -*- 
+########################################################################
+# Filename    : piClock.py
 # Description : horloge numérique
 # auther      : papsdroid.fr
-# creation    : 2020/03/13
-# version     : v1.2 2020/05/02 (correctif pb IO ERROR avec adafruit_ht16k33)
-#############################################################################
+# modification: 2020/03/13
+########################################################################
 
 import RPi.GPIO as GPIO
 import time, threading, os, board, neopixel
@@ -226,7 +226,7 @@ class SevenDisplay():
             self.display.print(hh+mn)
             self.display.show()
         except:
-            print('io/error communication 7segment display ', hh,':', mn,':',ss,'.',ds)
+            print('Warning io/error communication 7segment display ', datetime.now())
             #os.system('sudo reboot') #reboot le système
 
 
@@ -285,7 +285,7 @@ class Timer(threading.Thread):
 #------------------------------------------------------------------------------------------------------
 class Application:
     def __init__(self):
-        print("démarrage piCLock")
+        print('démarrage piCLock', datetime.now())
         self.display = SevenDisplay()                # affichage 7 segments
         self.leds = RingLeds(60)                     # rubans de 60 leds
         self.timer = Timer(self.leds, self.display)  # thread timer 
