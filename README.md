@@ -13,7 +13,7 @@ Horloge lumineuse à l'aide d'un raspberry pi zéro aux commandes d'un anneau de
 * Bloc d'alimentation 5V 3A jack: 10€
 * Anneau 60 leds RGB 172mm: 30€. Le PCB a été ralisé sur mesure pour [ce modèle](https://www.amazon.fr/gp/product/B07PXDJV48/ref=ppx_yo_dt_b_asin_title_o09_s00?ie=UTF8&psc=1)
 * 7 segment-display adafruit 1,2" avec backpack: 25€.  bien prendre [ce modèle 1.2"](https://www.amazon.fr/Adafruit-4-Digit-7-Segment-Display-Backpack/dp/B00XW2NSU2/ref=sr_1_2?__mk_fr_FR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=Adafruit+1.2%22+4-Digit+7-Segment+Display+w%2FI2C+Backpack&qid=1587801674&s=computers&sr=1-2)
-* Carte PCB: comptez 30€ en 5 exemplaires (télécharger les fichiers GERBER sur le github)
+* Carte PCB: comptez 30€ en 5 exemplaires (télécharger les fichiers GERBER zipés sur le github). Il faut simplement commander un PCB double-couche et aucune autre option (laisser les valeurs par défaut proposées): le tarif le moins cher devrait s'appliquer.
 
 divers composants électronique: 5€
 
