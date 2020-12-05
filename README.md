@@ -29,6 +29,8 @@ divers composants électronique: 5€
 Ce circuit est facilement réalisable sur une breadboard
 ![schema](_docs/SchemaKicad.png)
 
+![Fritzing](_docs/piClock_fritzing.png)
+
 
 ## configuration du système
 
