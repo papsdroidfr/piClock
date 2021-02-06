@@ -103,7 +103,7 @@ Plus de détail et vidéo démonstrative sur [papsdroid.fr](https://www.papsdroi
 
 ## boîtier et pied en impression 3D
 
-![3D](_docs/piclock_3D_web.jpg)
+![3D](_docs/piClock3D_web.png)
 
 Dans le répoertoire /3D_STL il y a les fichiers STL qui permettent d'imprimer en 3D la coque en deux parties (basse et haute) ainsi qu'un pied (optionnel).
 Les éléments peuvent tous être imprimés en 0.2mm, les mesures ont été prévues pour.
