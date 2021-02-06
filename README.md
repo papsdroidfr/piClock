@@ -3,7 +3,7 @@ source projet piClock sur https://www.papsdroid.fr/post/piclock
 
 Horloge lumineuse à l'aide d'un raspberry pi zéro aux commandes d'un anneau de 60 leds RGB et d'un afficheur 7 segments adafruit de grande taille (1,2"). Un bouton "off" permet d’éteindre correctement tout le système, et un autre bouton poussoir "select" permet quand à lui de modifier le style de l'horloge, avec une option d'extinction de l'anneau de leds (extinction automatique de l'anneau à minuit)
 
-![piCLock](_docs/20200422_221658.jpg)
+![piCLock](_docs/piclock_arcenciel_web.jpg)
 
 
 ## materiel nécessaire
@@ -101,4 +101,14 @@ C'est normal qu'au premier démarrage l'heure affichée n'est pas immédiatement
 
 Plus de détail et vidéo démonstrative sur [papsdroid.fr](https://www.papsdroid.fr/post/piclock)
 
+## boîtier et pied en impression 3D
+
+![3D](_docs/piclock_3D_web.jpg)
+
+Dans le répoertoire /3D_STL il y a les fichiers STL qui permettent d'imprimer en 3D la coque en deux parties (basse et haute) ainsi qu'un pied (optionnel).
+Les éléments peuvent tous être imprimés en 0.2mm, les mesures ont été prévues pour.
+
+* coque_basse.stl: partie arrière du boîtier avec un passage pour y loger une vis de fixation à un mur (pied inutile dans ce cas)
+* coque_haute.stl: partie qui vient recouvrir le LCD, avec des réhausses de bouton poussoir intégrés.
+* pied.stl: il permet de poser l'horloge légèrement inclinée sur une surface plate sans le fixer contre un mur.
 
