@@ -105,10 +105,10 @@ Plus de détail et vidéo démonstrative sur [papsdroid.fr](https://www.papsdroi
 
 ![3D](_docs/piClock3D_web.png)
 
-Dans le répoertoire /3D_STL il y a les fichiers STL qui permettent d'imprimer en 3D la coque en deux parties (basse et haute) ainsi qu'un pied (optionnel).
+Dans le répertoire /3D_STL il y a les fichiers STL qui permettent d'imprimer en 3D la coque en deux parties (basse et haute) ainsi qu'un pied (optionnel).
 Les éléments peuvent tous être imprimés en 0.2mm, les mesures ont été prévues pour.
 
 * coque_basse.stl: partie arrière du boîtier avec un passage pour y loger une vis de fixation à un mur (pied inutile dans ce cas)
-* coque_haute.stl: partie qui vient recouvrir le LCD, avec des réhausses de bouton poussoir intégrés.
+* coque_haute.stl: partie qui vient recouvrir le LCD, avec des rehausses de bouton poussoir intégrés.
 * pied.stl: il permet de poser l'horloge légèrement inclinée sur une surface plate sans le fixer contre un mur.
 
