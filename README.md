@@ -34,7 +34,7 @@ Ce circuit est facilement réalisable sur une breadboard
 
 ## configuration du système
 
-Pour configurer son raspberry piZero: suivez [ce guide](https://www.papsdroid.fr/post/configurer-pizero)
+Pour configurer son raspberry piZero: suivez [ce guide](https://papsdroidfr.github.io/configuration/config-pzero/)
 
 Installer ensuite les dépendances [Neopixel d'Adafruit](https://learn.adafruit.com/adafruit-neopixel-uberguide/python-circuitpython)
 
