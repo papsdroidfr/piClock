@@ -14,8 +14,8 @@ from random import randrange
 from adafruit_ht16k33.segments import BigSeg7x4
 
 HH_TIME_OFF = '00:00:00'    #Heure d'extinction automatique hh:mn:ss
-LEDS_OFF_AUTO = True        #False/True: si True l'anneau de leds s'éteind à HH_TIME_OFF:00:00.
-DISPLAY_OFF_AUTO = True     #False/True: si Ture le display de l'heure s'éteind à HH_TIME_OFF:00:00
+LEDS_OFF_AUTO = True        #False/True: si True l'anneau de leds s'éteind à HH_TIME_OFF
+DISPLAY_OFF_AUTO = True     #False/True: si Ture le display de l'heure s'éteind à HH_TIME_OFF
 
 #-----------------------------------------------------
 # classe de gestion d'un anneau de 60 leds Neopixels
