@@ -1,5 +1,5 @@
 # piClock
-source projet piClock sur https://www.papsdroid.fr/post/piclock
+source projet piClock sur [https://www.papsdroid.fr/post/piclock](https://papsdroidfr.github.io/tutoriels/piclock/)
 
 Horloge lumineuse à l'aide d'un raspberry pi zéro aux commandes d'un anneau de 60 leds RGB et d'un afficheur 7 segments adafruit de grande taille (1,2"). Un bouton "off" permet d’éteindre correctement tout le système, et un autre bouton poussoir "select" permet quand à lui de modifier le style de l'horloge, avec une option d'extinction de l'anneau de leds (extinction automatique de l'anneau à minuit)
 
