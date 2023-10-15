@@ -13,6 +13,10 @@ from datetime import datetime
 from random import randrange
 from adafruit_ht16k33.segments import BigSeg7x4
 
+HH_TIME_OFF = '00:00:00'    #Heure d'extinction automatique hh:mn:ss
+LEDS_OFF_AUTO = True        #False/True: si True l'anneau de leds s'éteind à HH_TIME_OFF:00:00.
+DISPLAY_OFF_AUTO = True     #False/True: si Ture le display de l'heure s'éteind à HH_TIME_OFF:00:00
+
 #-----------------------------------------------------
 # classe de gestion d'un anneau de 60 leds Neopixels
 #-----------------------------------------------------
@@ -34,7 +38,7 @@ class RingLeds():
         self.rgbMIN = 10       	       # minimum pour générer un niveau de  couleur au hasard entre 0 et 255
         self.rgbMAX = 127              # maximum pour générer un niveau de  couleur au hasard entre 0 et 255 
         self.anims_secondes = ['self.ledn_wheel_on()', 'self.ledn_red_on()', 'self.ledn_random_on()','self.ledn_randomB_on()',
-			           'self.ledn_randomR_on()','self.ledn_randomG_on()']
+                               'self.ledn_randomR_on()','self.ledn_randomG_on()']
         self.anims = ['self.ledn_anim_secondes()', 'self.time()', 'self.pause()']
         self.id_anim=0                   # référence de l'animation leds, incrémentée avec le bouton poussoir
         self.id_pause = 2                # id animation pause
@@ -213,6 +217,7 @@ class SevenDisplay():
         self.display.blink_rate = 0
         self.hh = "00"     # heure
         self.mn = "00"     # minutes
+        self.actif = True  # display actif au démarrage
         self.off()         # étteint l'afficheur 7 segments au démarrage
 
     #mise à jour de l'heure
@@ -271,7 +276,8 @@ class Timer(threading.Thread):
             if self.ringLeds.actif:
                 self.ringLeds.set_time(self.hh, self.mn, self.ss)
                 #self.ringLeds.set_time("12","18",self.ss") # tests
-            self.display.set_time(self.hh, self.mn, self.ss, self.ds)
+            if self.display.actif:
+                self.display.set_time(self.hh, self.mn, self.ss, self.ds)
             time.sleep(0.1)
         self.off()
 
@@ -304,11 +310,14 @@ class Application:
         time.sleep(1)
         GPIO.cleanup()
 
-    #bouton poussoir SELECT: change l'animation du ruban de leds.
-    #-------------------------------------------------------------
+    #bouton poussoir SELECT: change l'animation du ruban de leds et actif le display
+    #-------------------------------------------------------------------------------
     def buttonSelectEvent(self,channel):
         self.leds.id_anim_suivant()
-        #print('Select pressed',self.leds.id_anim )
+        self.display.actif = (self.leds.id_anim < 2)
+        if not self.display.actif:
+            self.display.off()
+        #print('Select pressed,','leds:',self.leds.id_anim, 'display:',self.leds.actif, self.display.actif )
 
     #bouton poussoir OFF: extinction système
     #----------------------------------------
@@ -326,16 +335,23 @@ class Application:
             mn = now.strftime('%M')      # minutes sur 2 chiffres
             ss = now.strftime('%S')      # secondes converties en entier
             ds = now.strftime('%f')[0]   # 1er unités des microsecondes sur 6 chiffres (1/10 secondes)
-            #print('time:', hh,mn,ss, ms)
-            if self.timer.ringLeds.actif and hh == '00':     # mise en pause automatique du ruban de leds à minuit
-                self.timer.ringLeds.id_anim = self.timer.ringLeds.id_pause
+            #print('time:', hh,mn,ss, ds)
             self.timer.set_time(hh,mn,int(ss),int(ds))
+            # mise en pause automatique à HH_TIME_OFF:00:00
+            if hh+":"+mn+":"+ss == HH_TIME_OFF:
+                if LEDS_OFF_AUTO and self.timer.ringLeds.actif:
+                    self.timer.ringLeds.id_anim = self.timer.ringLeds.id_pause
+                if DISPLAY_OFF_AUTO and self.display.actif:
+                    self.display.actif = False
+                    self.display.off()
             time.sleep(0.1)
 
 if __name__ == '__main__':
     appl=Application() 
     try:
         appl.loop()
+    except KeyboardInterrupt:  # interruption clavier CTRL-C: appel à la méthode destroy() de appl.
+        appl.destroy()
     except KeyboardInterrupt:  # interruption clavier CTRL-C: appel à la méthode destroy() de appl.
         appl.destroy()
 
